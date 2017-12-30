@@ -1,0 +1,23 @@
+clear all 
+clc
+[x,y]=meshgrid(-7.5:0.51:7.5,-7.5:0.5:7.5);
+z=sin((x.^2+y.^2).^0.5)./(x.^2+y.^2).^0.5;
+fig=figure();
+subplot(3,1,1);
+surf(x,y,z)
+xlabel('x')
+ylabel('y')
+zlabel('z')
+title('三维曲线')
+subplot(3,1,2)
+surfc(x,y,z)
+xlabel('y')
+ylabel('y')
+zlabel('z')
+title('三维等高曲线')
+subplot(3,1,3)
+contourf(x,y,z)
+title('二维等高曲线')
+xlabel('x')
+ylabel('y')
+zlabel('z')

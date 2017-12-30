@@ -1,0 +1,23 @@
+clear all
+clc
+%linprog计算
+%第一问
+f1=[2800;4500;6000;7300;2800;4500;6000;0;2800;4500;0;0;2800;0;0;0];
+A1=zeros(4,16);
+A1(1,1:4)=-[1,1,1,1];
+A1(2,2:7)=-[1,1,1,1,1,1];
+A1(3,3:10)=-[1,1,0,1,1,0,1,1];
+A1(4,4:13)=-[1,0,0,1,0,0,1,0,0,1];
+b1=[-15;-10;-20;-12];
+lb1=zeros(1,16);
+option1=optimset('Display','iter','Diagnostics','on');
+[x1,fval1,exitflag1,output1,lambda1]=linprog(f1,A1,b1,[],[],lb1,[],[],option1)
+%第二问
+f2=[-3,4,-2,5];
+A2=[1,1,-1,2;-2,3,1,1];
+b2=[14;2];
+Aeq2=[4,-1,2,-1];
+beq2=-2;
+lb2=[-1,-1,-1];
+option2=optimset('Display','iter','Diagnostics','on');
+[x2,fval2,exitflag2,output2,lambda2]=linprog(f2,A2,b2,Aeq2,beq2,lb2,[],[],option2)
